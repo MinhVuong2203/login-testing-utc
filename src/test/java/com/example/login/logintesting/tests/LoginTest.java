@@ -149,5 +149,23 @@ public class LoginTest extends BaseTest {
         );
     }
 
+    // TC_LOGIN_09
+    // Password có khoảng trắng
+    @Test
+    public void TC_LOGIN_09_passwordWithSpaces() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.login(
+                "huongnt",
+                "  123456@utc2  "
+        );
+
+        // Kiểm tra hệ thống không bị crash
+        Assertions.assertNotNull(
+                loginPage.getCurrentUrl()
+        );
+    }
+
 
 }
