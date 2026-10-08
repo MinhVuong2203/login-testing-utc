@@ -185,5 +185,25 @@ public class LoginTest extends BaseTest {
         );
     }
 
+    // TC_LOGIN_11
+    // Nhập dữ liệu vượt quá độ dài cho phép
+    @Test
+    public void TC_LOGIN_11_exceedMaximumLength() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        String longText = "A".repeat(1000);
+
+        loginPage.login(
+                longText,
+                longText
+        );
+
+        Assertions.assertNotNull(
+                loginPage.getCurrentUrl()
+        );
+    }
+
+
 
 }
