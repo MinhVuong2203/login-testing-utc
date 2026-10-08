@@ -81,7 +81,7 @@ public class LoginTest extends BaseTest {
                 loginPage.getCurrentUrl()
         );
     }
-    
+
     // TC_LOGIN_05
     // Bỏ trống username
     @Test
@@ -90,6 +90,23 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
 
         loginPage.enterPassword("123456@utc2");
+
+        loginPage.clickLogin();
+
+        Assertions.assertEquals(
+                "https://vanphongdientu.utc.edu.vn/Login",
+                loginPage.getCurrentUrl()
+        );
+    }
+
+    // TC_LOGIN_06
+    // Bỏ trống password
+    @Test
+    public void TC_LOGIN_06_emptyPassword() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.enterUsername("huongnt");
 
         loginPage.clickLogin();
 
