@@ -63,5 +63,24 @@ public class LoginTest extends BaseTest {
         );
     }
 
+    
+    // TC_LOGIN_04
+    // Username và password đều sai
+    @Test
+    public void TC_LOGIN_04_wrongUsernameWrongPassword() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.login(
+                "username_sai",
+                "password_sai"
+        );
+
+        Assertions.assertEquals(
+                "https://vanphongdientu.utc.edu.vn/Login",
+                loginPage.getCurrentUrl()
+        );
+    }
+
 
 }
