@@ -25,4 +25,25 @@ public class LoginTest extends BaseTest {
                 loginPage.getCurrentUrl()
         );
     }
+
+
+    // TC_LOGIN_02
+    // Username đúng, password sai
+    @Test
+    public void TC_LOGIN_02_correctUsernameWrongPassword() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.login(
+                "huongnt",
+                "123456_sai"
+        );
+
+        Assertions.assertEquals(
+                "https://vanphongdientu.utc.edu.vn/Login",
+                loginPage.getCurrentUrl()
+        );
+    }
+
+
 }
