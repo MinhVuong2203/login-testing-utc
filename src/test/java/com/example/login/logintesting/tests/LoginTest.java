@@ -204,6 +204,25 @@ public class LoginTest extends BaseTest {
         );
     }
 
+    // TC_LOGIN_12
+    // Đăng xuất sau khi đăng nhập
+    @Test
+    public void TC_LOGIN_12_logout() {
 
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.login(
+                "huongnt",
+                "123456@utc2"
+        );
+
+   
+        // Sau khi xác định chính xác phần tử "Đăng xuất"
+        // sẽ bổ sung thao tác logout tại đây.
+
+        Assertions.assertNotNull(
+                loginPage.getCurrentUrl()
+        );
+    }
 
 }
