@@ -116,5 +116,20 @@ public class LoginTest extends BaseTest {
         );
     }
 
+    // TC_LOGIN_07
+    // Bỏ trống cả username và password
+    @Test
+    public void TC_LOGIN_07_emptyUsernameAndPassword() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.clickLogin();
+
+        Assertions.assertEquals(
+                "https://vanphongdientu.utc.edu.vn/Login",
+                loginPage.getCurrentUrl()
+        );
+    }
+
 
 }
