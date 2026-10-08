@@ -131,5 +131,23 @@ public class LoginTest extends BaseTest {
         );
     }
 
+    // TC_LOGIN_08
+    // Username có khoảng trắng đầu/cuối
+    @Test
+    public void TC_LOGIN_08_usernameWithSpaces() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.login(
+                "  huongnt  ",
+                "123456@utc2"
+        );
+
+        // Kiểm tra hệ thống không bị crash
+        Assertions.assertNotNull(
+                loginPage.getCurrentUrl()
+        );
+    }
+
 
 }
