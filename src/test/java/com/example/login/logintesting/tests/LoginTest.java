@@ -167,5 +167,23 @@ public class LoginTest extends BaseTest {
         );
     }
 
+    // TC_LOGIN_10
+    // Nhập ký tự đặc biệt
+    @Test
+    public void TC_LOGIN_10_specialCharacters() {
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.login(
+                "<script>alert(1)</script>",
+                "' OR '1'='1"
+        );
+
+        Assertions.assertEquals(
+                "https://vanphongdientu.utc.edu.vn/Login",
+                loginPage.getCurrentUrl()
+        );
+    }
+
 
 }
